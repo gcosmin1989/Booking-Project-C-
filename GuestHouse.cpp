@@ -1,35 +1,36 @@
 #include "GuestHouse.h"
+using namespace std;
 
-std::vector<GuestHouse> GuestHouse::guestHouses;
+vector<GuestHouse> GuestHouse::guestHouses;
 
-GuestHouse::GuestHouse(std::string name, std::string city, double price, int beds, std::string owner)
+GuestHouse::GuestHouse(string name, string city, double price, int beds, string owner)
     : Accomodation(name, city, price), beds(beds), owner(owner) {
     guestHouses.push_back(*this);
 }
 
 void GuestHouse::get_info() const {
     Accomodation::get_info();
-    std::cout << " available units: " << beds << " beds, Owner name: " << owner << " ==" << std::endl << std::endl;
+    cout << " available units: " << beds << " beds, Owner name: " << owner << " ==" << endl << endl;
 }
 
 void GuestHouse::get_registered() const {
     Accomodation::get_registered();
-    std::cout << " | Beds: " << beds << " | Owner name: " << owner << std::endl;
+    cout << " | Beds: " << beds << " | Owner name: " << owner << endl;
 }
 
 void GuestHouse::display_guestHouses() {
     if (guestHouses.empty()) {
-        std::cout << std::endl << "No GuestHouses registered yet." << std::endl << std::endl;
+        cout << endl << "No GuestHouses registered yet." << endl << endl;
     }
     else {
-        std::cout << std::endl << "List of GuestHouses:" << std::endl;
+        cout << endl << "List of GuestHouses:" << endl;
         for (const auto& guestHouse : guestHouses) {
             guestHouse.get_registered();
         }
     }
 }
 
-GuestHouse* GuestHouse::find_guesthouse_by_name(const std::string& name) {
+GuestHouse* GuestHouse::find_guesthouse_by_name(const string& name) {
     for (auto& guestHouse : guestHouses) {
         if (guestHouse.get_name() == name) {
             return &guestHouse;

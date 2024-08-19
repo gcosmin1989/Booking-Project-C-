@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
 #include "Accomodation.h"
+using namespace std;
 
 class Booking {
 public:
-    std::string customer_name;
+    string customer_name;
     Accomodation& accomodation;
     int nights;
     int num_units;
 
-    Booking(std::string customer_name, Accomodation& accomodation, int nights, int num_units);
+    Booking(string customer_name, Accomodation& accomodation, int nights, int num_units);
 
-    void display_booking(std::string unit) const;
+    void display_booking(string unit) const;
 };
 
 
