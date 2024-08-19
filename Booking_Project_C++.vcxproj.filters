@@ -18,15 +18,24 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Accomodation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hotel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GuestHouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Booking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accomodation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AccomodationClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HotelClass.h">
+    <ClInclude Include="Hotel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GuestHouse.h">

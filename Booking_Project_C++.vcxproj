@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\cog\Desktop\CPP_Stuff\Booking_Project_C++</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,14 +128,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Accomodation.cpp" />
+    <ClCompile Include="Booking.cpp" />
+    <ClCompile Include="GuestHouse.cpp" />
+    <ClCompile Include="Hotel.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accomodation.h" />
-    <ClInclude Include="AccomodationClass.h" />
     <ClInclude Include="Booking.h" />
     <ClInclude Include="GuestHouse.h" />
-    <ClInclude Include="HotelClass.h" />
+    <ClInclude Include="Hotel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
