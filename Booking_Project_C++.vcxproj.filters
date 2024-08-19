@@ -30,6 +30,9 @@
     <ClCompile Include="Booking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AccomodationStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accomodation.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Booking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AccomodationStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

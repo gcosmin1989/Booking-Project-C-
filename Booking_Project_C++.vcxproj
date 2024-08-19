@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Accomodation.cpp" />
+    <ClCompile Include="AccomodationStorage.cpp" />
     <ClCompile Include="Booking.cpp" />
     <ClCompile Include="GuestHouse.cpp" />
     <ClCompile Include="Hotel.cpp" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accomodation.h" />
+    <ClInclude Include="AccomodationStorage.h" />
     <ClInclude Include="Booking.h" />
     <ClInclude Include="GuestHouse.h" />
     <ClInclude Include="Hotel.h" />

@@ -18,10 +18,6 @@ public:
 
     void get_registered() const;
 
-    static void display_guestHouses();
-
-    static GuestHouse* find_guesthouse_by_name(const string& name);
-
     bool book_beds(int num_beds);
 };
 

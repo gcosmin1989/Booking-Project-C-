@@ -5,8 +5,11 @@ using namespace std;
 #include "Hotel.h"
 #include "GuestHouse.h"
 #include "Booking.h"
+#include "AccomodationStorage.h"
+#include <type_traits>
 
 int main() {
+    AccomodationStorage storage;
     while (true) {
         string user_choice;
         int booking_choice;
@@ -32,13 +35,13 @@ int main() {
             cin >> booking_choice;
 
             if (booking_choice == 1) {
-                Hotel::display_hotels();
-                if (!Hotel::hotels.empty()) {
+                storage.display_hotels();
+                if (!storage.hotels.empty()) {
                     cout << "Enter the hotel name you want to book: ";
                     cin.ignore();
                     getline(cin, hotel_name);
-                    Hotel* hotel = Hotel::find_hotel_by_name(hotel_name);
-                    if (hotel != nullptr && hotel->rooms > 0) {
+                    Hotel* hotel_ptr = nullptr;
+                    if (storage.find_hotel_by_name(hotel_name, hotel_ptr) && hotel_ptr->rooms > 0) {
                         string customer_name;
                         int nights;
                         int num_rooms;
@@ -48,15 +51,15 @@ int main() {
                         cin >> nights;
                         cout << "Enter the number of rooms: ";
                         cin >> num_rooms;
-                        if (hotel->book_rooms(num_rooms)) {
-                            Booking booking(customer_name, *hotel, nights, num_rooms);
+                        if (hotel_ptr->book_rooms(num_rooms)) {
+                            Booking booking(customer_name, *hotel_ptr, nights, num_rooms);
                             booking.display_booking("rooms");
                         }
                         else {
                             cout << "Not enought rooms availbe" << endl;
                         }
                     }
-                    else if(hotel->rooms == 0) {
+                    else if(hotel_ptr != nullptr && hotel_ptr->rooms == 0) {
                         cout << "Rooms not available" << endl;
                         
                     }else{ 
@@ -65,13 +68,13 @@ int main() {
                 }
             }
             else if (booking_choice == 2) {
-                GuestHouse::display_guestHouses();
-                if (!GuestHouse::guestHouses.empty()) {
+                storage.display_guesthouses();
+                if (!storage.guestHouses.empty()) {
                     cout << "Enter the guesthouse name you want to book: ";
                     cin.ignore();
                     getline(cin, guesthouse_name);
-                    GuestHouse* guestHouse = GuestHouse::find_guesthouse_by_name(guesthouse_name);
-                    if (guestHouse != nullptr && guestHouse->beds>0) {
+                    GuestHouse* guestHouse_ptr = nullptr;
+                    if (storage.find_guesthouse_by_name(guesthouse_name, guestHouse_ptr) && guestHouse_ptr->beds > 0) {
                         string customer_name;
                         int nights;
                         int num_beds;
@@ -82,8 +85,8 @@ int main() {
                         cout << "Enter the number of beds: ";
                         cin >> num_beds;
                         
-                        if (guestHouse->book_beds(num_beds)) {
-                            Booking booking(customer_name, *guestHouse, nights, num_beds);
+                        if (guestHouse_ptr->book_beds(num_beds)) {
+                            Booking booking(customer_name, *guestHouse_ptr, nights, num_beds);
                             booking.display_booking("beds");
                         }
                         
@@ -91,7 +94,7 @@ int main() {
                             cout << "Not enought beds availabe" << endl;
                         }
                     }
-                    else if (guestHouse->beds == 0) {
+                    else if (guestHouse_ptr != nullptr && guestHouse_ptr->beds == 0) {
                         cout << "Beds not available" << endl;
 
                     }
@@ -129,6 +132,7 @@ int main() {
                 }
                 cout << endl;
                 Hotel hotel(hotel_name, hotel_city, hotel_price, hotel_rooms);
+                storage.add_hotel(hotel);
                 hotel.get_info();
             }
             else if (register_choice == 2) {
@@ -155,6 +159,7 @@ int main() {
                 getline(cin, guesthouse_owner);
                 cout << endl;
                 GuestHouse guestHouse(guesthouse_name, guesthouse_city, guesthouse_price, guesthouse_beds, guesthouse_owner);
+                storage.add_guesthouse(guestHouse);
                 guestHouse.get_info();
             }
         }
