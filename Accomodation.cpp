@@ -1,5 +1,5 @@
 #include "Accomodation.h"
-#include <iostream>;
+#include <iostream>
 using namespace std;
 
 Accomodation::Accomodation(string name, string city, double price)
